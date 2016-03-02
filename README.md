@@ -1,4 +1,4 @@
-# Sinatra::Shopify
+# Sinatra::Shopified
 
 This is a work-in-progress extension for Sinatra which provides some basic helpers and routes to create a Sinatra-powered Shopify application.
 
@@ -9,7 +9,7 @@ This is a work-in-progress extension for Sinatra which provides some basic helpe
 Add this line to your application's Gemfile:
 
 ``` ruby
-gem "sinatra-shopified", git: "git@github.com:tyler-king/guts.git"
+gem "sinatra-shopified", git: "https://github.com/tyler-king/sinatra-shopified.git"
 ```
 
 Then, execute `bundle` to install then Gem.
