@@ -1,0 +1,6 @@
+/.bundle/
+/Gemfile.lock
+/pkg/
+/sinatra-shopified-*.gem
+/doc
+/.yardoc
