@@ -1,5 +1,7 @@
 # Sinatra::Shopified
 
+[![Build Status](https://secure.travis-ci.org/tyler-king/sinatra-shopified.svg?branch=master)](http://travis-ci.org/tyler-king/sinatra-shopified) [![Docs](https://inch-ci.org/github/tyler-king/sinatra-shopified.svg?branch=master)](https://inch-ci.org/github/tyler-king/sinatra-shopified)
+
 This is a work-in-progress extension for Sinatra which provides some basic helpers and routes to create a Sinatra-powered Shopify application.
 
 ## Installation
