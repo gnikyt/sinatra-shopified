@@ -24,4 +24,10 @@ Gem::Specification.new do |spec|
   spec.add_dependency "sinatra-activerecord", "~> 2.0"
   spec.add_development_dependency "yard", "~> 0.8"
   spec.add_development_dependency "inch", "~> 0.7"
+  spec.add_development_dependency "rake", "~> 10.5"
+  spec.add_development_dependency "rack-test", "~> 0.6"
+  spec.add_development_dependency "webmock", "~> 1.24"
+  spec.add_development_dependency "sinatra-activerecord", "~> 2.0"
+  spec.add_development_dependency "sqlite3", "~> 1.3"
+  spec.add_development_dependency "simplecov", "~> 0.11"
 end

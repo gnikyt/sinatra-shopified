@@ -24,10 +24,9 @@ module Sinatra
       # Auth controller which handles creating shop sessions,
       # hanlding app permissions, and more
       app.get "/auth" do
-        api_session = ShopifyAPI::Session.new params[:shop]
-
         # Setup our session
-        session[:shopify_domain] = params[:shop]
+        session[:shopify_domain] = params[:shop] if params.key?("shop")
+        api_session = ShopifyAPI::Session.new session[:shopify_domain]
 
         if params.key? "code"
           # Create the shop if its new, update the token, and activate the session
@@ -40,6 +39,12 @@ module Sinatra
           # No code, lets ask for app permissions
           redirect api_session.create_permission_url(ENV["SHOPIFY_API_SCOPE"].split(","), to("/auth", true))
         end
+      end
+      
+      # Catch ant UnauthrorizedAccess from Shopify and redirect to auth
+      app.error ActiveResource::UnauthorizedAccess do
+        params[:shop] = session[:shopify_domain] if session[:shopify_domain]
+        authorize_shop_fallback
       end
     end
   end

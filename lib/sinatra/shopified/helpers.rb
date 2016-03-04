@@ -35,24 +35,28 @@ module Sinatra
         ShopifyAPI::Session.temp shop.shop, shop.token, &block
       end
         
+      # Clears session and reidrects to auth
+      def authorize_shop_fallback
+        shopify_session_clear
+        redirect to("/auth?shop=#{params[:shop]}")
+      end
+      
       # Check if shop is authorized to view a page.
       # If they are, we activate the Shopify session.
       # If not, they are redirected to auth.
       def authorize_shop
-        fallback = ->{shopify_session_clear; redirect to("/auth?shop=#{params[:shop]}")}
-
-        if current_shop == nil or (params[:shop] and session[:shopify_domain] != params[:shop])
+        if current_shop == nil
           # No session yet, or shop domains are different
-          fallback.call
+          authorize_shop_fallback.call
         end
         
-        begin
-          # Attempt to activate
-          shopify_session_activate
-        rescue ActiveResource::UnauthorizedAccess
-          # No access, redirect to auth
-          fallback.call
+        if params[:shop] and session[:shopify_domain] != params[:shop]
+          # Shops are different
+          authorize_shop_fallback.call
         end
+        
+        # Activate the session
+        shopify_session_activate
       end
   
       # Forces a redirect to get out of the iFrame for embedded apps

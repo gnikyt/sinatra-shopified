@@ -1,0 +1,1 @@
+Sinatra::Shopified::Models::Shop.create(shop: "existing_shop.myshopify.com", token: "a_token")

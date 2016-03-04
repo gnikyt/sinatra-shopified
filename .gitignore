@@ -4,3 +4,6 @@
 /sinatra-shopified-*.gem
 /doc
 /.yardoc
+/coverage
+/db/schema.rb
+/db/*.sqlite3

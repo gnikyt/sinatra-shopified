@@ -9,7 +9,7 @@ This is a work-in-progress extension for Sinatra which provides some basic helpe
 Add this line to your application's Gemfile:
 
 ``` ruby
-gem "sinatra-shopified", git: "https://github.com/tyler-king/sinatra-shopified.git"
+gem "sinatra-shopified"
 ```
 
 Then, execute `bundle` to install then Gem.
@@ -98,6 +98,17 @@ SHOPIFY_APP_REDIRECT_AFTER_AUTH='/' # Where to redirect after authentication is 
 
 YARD is used for documentation. Simply run `bundle exec yardoc` to generate the documentation of the code and open `doc/index.html` in your browser.
 
+## Testing
+
+For initial runs, simply setup the database, migrate the db, and load the seeds in.
+
+```bash
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rake db:seed
+bundle exec rake test
+```
+
 ## Usage
 
 There are a couple noteable helper methods.
@@ -167,10 +178,6 @@ This module adds one route.
 #### /auth
 
 With the use of `authorize_shop` or simply visting `/auth`. When creating your app in the Partner section, set this as the `redirect_uri`.
-
-## Todo
-
-+ Write unit tests
 
 ## License
 
