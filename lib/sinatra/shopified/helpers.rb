@@ -27,7 +27,7 @@ module Sinatra
       # Allowing using a temporary session for a shop
       # @param [Object] shop the shop's object
       # @example
-      #   shop = Shopify::Models::Shop.find(shop: "coolshop.myshopify.com")
+      #   shop = Shopify::Models::Shop.find(shop: 'coolshop.myshopify.com')
       #   shopify_session_with shop do
       #     ShopifyAPI::Product.find 42
       #   end
@@ -63,7 +63,7 @@ module Sinatra
       # @param [String] redirect_url the URL to redirect to
       # @return [String] the Javascript for redirecting
       # @example
-      #  esdk_redirect "/admin/products"
+      #  esdk_redirect '/admin/products'
       def esdk_redirect(redirect_url)
         "<script type='text/javascript'>top.window.location.href = '#{redirect_url}';</script>"
       end

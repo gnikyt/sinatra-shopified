@@ -1,8 +1,10 @@
 # Sinatra::Shopified
 
-[![Build Status](https://secure.travis-ci.org/tyler-king/sinatra-shopified.svg?branch=master)](http://travis-ci.org/tyler-king/sinatra-shopified) [![Docs](https://inch-ci.org/github/tyler-king/sinatra-shopified.svg?branch=master)](https://inch-ci.org/github/tyler-king/sinatra-shopified)
+[![Build Status](https://secure.travis-ci.org/ohmybrew/sinatra-shopified.svg?branch=master)](http://travis-ci.org/ohmybrew/sinatra-shopified) [![Docs](https://inch-ci.org/github/ohmybrew/sinatra-shopified.svg?branch=master)](https://inch-ci.org/github/ohmybrew/sinatra-shopified) [![Gem Version](https://badge.fury.io/rb/sinatra-shopified.svg)](https://badge.fury.io/rb/sinatra-shopified)
 
 This is a work-in-progress extension for Sinatra which provides some basic helpers and routes to create a Sinatra-powered Shopify application.
+
+Sinatra 1 and Sinatra 2 are both supported.
 
 ## Installation
 
@@ -11,7 +13,7 @@ This is a work-in-progress extension for Sinatra which provides some basic helpe
 Add this line to your application's Gemfile:
 
 ``` ruby
-gem "sinatra-shopified"
+gem 'sinatra-shopified'
 ```
 
 Then, execute `bundle` to install then Gem.
@@ -23,14 +25,14 @@ This assumes you have ActiveRecord up and running and you are using a modular-st
 In your Sinatra application, load the Gem:
 
 ``` ruby
-require "sinatra/shopified"
+require 'sinatra/shopified'
 ```
 
 Now, register it. As an example:
 
 ``` ruby
-require "sinatra/base"
-require "sinatra/shopified"
+require 'sinatra/base'
+require 'sinatra/shopified'
 
 class MyCoolApp < Sinatra::Base
   # ...
@@ -109,6 +111,13 @@ bundle exec rake db:create
 bundle exec rake db:migrate
 bundle exec rake db:seed
 bundle exec rake test
+```
+
+For Appraisal testing:
+
+```bash
+appraisal install
+appraisal rake test
 ```
 
 ## Usage

@@ -2,6 +2,9 @@ language: ruby
 rvm:
   - 2.1
   - 2.2
+gemfile:
+  - gemfiles/sinatra_1.gemfile
+  - gemfiles/sinatra_2.gemfile
 env:
   - NO_COVERAGE=true
 before_script:
