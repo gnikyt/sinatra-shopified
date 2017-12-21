@@ -13,13 +13,14 @@ Gem::Specification.new do |spec|
   spec.license       = 'MIT'
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = 'exe'
+  
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
   spec.add_dependency 'shopify_api', '>= 4.0'
   spec.add_dependency 'sinatra', '>= 1.4'
   spec.add_dependency 'sinatra-activerecord', '~> 2.0'
-  spec.add_development_dependency 'yard', '~> 0.9.11'
+  spec.add_development_dependency 'yard', '~> 0.8'
   spec.add_development_dependency 'inch', '~> 0.7'
   spec.add_development_dependency 'rake', '~> 10.5'
   spec.add_development_dependency 'rack-test', '~> 0.6'
